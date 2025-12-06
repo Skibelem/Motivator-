@@ -32,7 +32,7 @@ function Motivation() {
   };
 
   const shareQuote = () => {
-    const text = `Motivation of the day: "${quote}"`;
+    const text = `Daily Motivation: "${quote}"`;
     const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
