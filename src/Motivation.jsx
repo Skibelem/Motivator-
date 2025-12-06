@@ -16,8 +16,32 @@ function Motivation() {
     "Focus on progress, not perfection.",
     "Your potential is bigger than your excuses.",
     "Don’t stop when you're tired. Stop when you’re done.",
-    "Action kills fear. Start now."
+    "Action kills fear. Start now.",
+    "Dream it. Wish it. Do it.",
+    "Push yourself, because no one else is going to do it for you.",
+    "Success is the sum of small efforts repeated day in and day out.",
+    "Believe you can and you're halfway there.",
+    "The harder you work for something, the greater you'll feel when you achieve it.",
+    "Do something today that your future self will thank you for.",
+    "Little by little, a little becomes a lot.",
+    "Don’t wait for opportunity. Create it.",
+    "You don’t have to be great to start, but you have to start to be great.",
+    "Failure is not the opposite of success; it’s part of success.",
+    "Strive for progress, not perfection.",
+    "The only limit is your mind.",
+    "Stay patient and trust your journey.",
+    "Don’t watch the clock; do what it does. Keep going.",
+    "Success doesn’t come from what you do occasionally, it comes from what you do consistently.",
+    "Great things never come from comfort zones.",
+    "It always seems impossible until it’s done.",
+    "Your only limit is you.",
+    "Turn your wounds into wisdom.",
+    "Don’t count the days; make the days count.",
+    "You are stronger than you think.",
+    "Start where you are. Use what you have. Do what you can.",
+    "Your future is created by what you do today, not tomorrow."
   ];
+  
 
   // Fetch quote from API with mobile-friendly proxy and fallback
   const generateQuote = async () => {
