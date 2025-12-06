@@ -8,15 +8,35 @@ function Motivation() {
   const [loading, setLoading] = useState(false);
   const shareRef = useRef(null);
 
-  // Fetch Quote API
+  // Local fallback quotes
+  const fallbackQuotes = [
+    "Keep going — you’re closer than you think.",
+    "Small steps every day lead to big results.",
+    "You have more in you than you know.",
+    "Focus on progress, not perfection.",
+    "Your potential is bigger than your excuses.",
+    "Don’t stop when you're tired. Stop when you’re done.",
+    "Action kills fear. Start now."
+  ];
+
+  // Fetch quote from API with mobile-friendly proxy and fallback
   const generateQuote = async () => {
+    setLoading(true);
     try {
-      setLoading(true);
-      const response = await fetch("https://api.quotable.io/random");
-      const data = await response.json();
+      const proxyUrl = "https://api.allorigins.win/get?url=";
+      const targetUrl = encodeURIComponent("https://api.quotable.io/random");
+      const response = await fetch(proxyUrl + targetUrl);
+      if (!response.ok) throw new Error("Failed to fetch quote");
+
+      const json = await response.json();
+      const data = JSON.parse(json.contents); // parse wrapped content
       setQuote(data.content);
-    } catch {
-      setQuote("Network error. Try again.");
+    } catch (error) {
+      console.error("Fetch error:", error);
+
+      // fallback to local quote
+      const randomIndex = Math.floor(Math.random() * fallbackQuotes.length);
+      setQuote(fallbackQuotes[randomIndex]);
     } finally {
       setLoading(false);
     }
@@ -33,7 +53,7 @@ function Motivation() {
     alert("Quote copied! 📋");
   };
 
-  // FIXED Share as Image
+  // Share as image with watermark </joe>
   const shareAsImage = async () => {
     if (!shareRef.current) return;
 
@@ -45,12 +65,11 @@ function Motivation() {
         foreignObjectRendering: true
       });
 
-      // Download the image
+      // Download image
       const link = document.createElement("a");
       link.download = "motivation.png";
       link.href = dataUrl;
       link.click();
-
     } catch (error) {
       console.error("Image generation failed:", error);
       alert("Something went wrong generating the image.");
@@ -64,8 +83,7 @@ function Motivation() {
         background: "linear-gradient(135deg,#ef4444,#3b82f6,#10b981,#f97316)"
       }}
     >
-
-      {/* CAPTURE CARD - moved offscreen */}
+      {/* Hidden share card for image generation */}
       <div
         ref={shareRef}
         className="p-6 bg-white rounded-xl shadow-xl w-[500px] text-center"
@@ -77,14 +95,10 @@ function Motivation() {
         }}
       >
         <p className="text-xl italic">“{quote}”</p>
-
-        {/* Watermark */}
-        <p className="text-sm mt-4 opacity-70 font-semibold">
-          — &lt;/joe&gt;
-        </p>
+        <p className="text-sm mt-4 opacity-70 font-semibold">— &lt;/joe&gt;</p>
       </div>
 
-      {/* MAIN UI CARD */}
+      {/* Main UI Card */}
       <motion.div
         className="bg-white w-full max-w-md sm:max-w-lg md:max-w-xl p-6 rounded-xl shadow-xl text-center text-black"
         initial={{ opacity: 0, scale: 0.8 }}
