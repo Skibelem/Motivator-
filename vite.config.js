@@ -12,8 +12,7 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
-   server: {
-     //Crucial step to bypass CORS policy during development
+  server: {
     proxy: {
       '/api-quotes': {
         target: 'https://zenquotes.io/api/random', // The external API target
@@ -37,7 +36,6 @@ export default defineConfig({
 //export default defineConfig({
   //plugins: [react()],
   //server: {
-    // Crucial step to bypass CORS policy during development
     //proxy: {
       //'/api-quotes': {
         //target: 'https://zenquotes.io/api/random', // The external API target
