@@ -185,7 +185,7 @@ const generateQuote = async () => {
   className="flex items-center justify-center p-3 bg-green-500 text-white text-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 text-sm sm:text-base font-medium"
 >
   {/* Changed from FaShareAlt to FaWhatsapp */}
-  <FaWhatsapp className="mr-2 text-6xl" /> Share
+  <FaWhatsapp className="mr-2 text-lg" /> Share
 </button>
         </div>
 
