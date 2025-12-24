@@ -182,10 +182,10 @@ const generateQuote = async () => {
           
           <button
   onClick={shareOnWhatsApp}
-  className="flex items-center justify-center p-3 bg-green-500 text-white text-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 text-sm sm:text-base font-medium"
+  className="flex items-center justify-center p-3 bg-green-500 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 text-sm sm:text-base font-medium"
 >
   {/* Changed from FaShareAlt to FaWhatsapp */}
-  <FaWhatsapp className="mr-2 text-lg" /> Share
+  <FaWhatsapp className="mr-2 text-base" /> Share
 </button>
         </div>
 
