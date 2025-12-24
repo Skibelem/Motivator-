@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { FaHeart, FaShareAlt, FaCopy, FaRedo, FaTrashAlt, FaRegHeart } from 'react-icons/fa';
+import { FaHeart, FaShareAlt, FaCopy, FaRedo, FaTrashAlt, FaRegHeart, FaWhatsapp } from 'react-icons/fa';
 
 // --- Momentum Motivator App Component ---
 function Momentum() {
@@ -181,11 +181,12 @@ const generateQuote = async () => {
           </button>
           
           <button
-            onClick={shareOnWhatsApp}
-            className="flex items-center justify-center p-3 bg-green-500 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 text-sm sm:text-base font-medium"
-          >
-            <FaShareAlt className="mr-2" /> Share on WA
-          </button>
+  onClick={shareOnWhatsApp}
+  className="flex items-center justify-center p-3 bg-green-500 text-white text-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 text-sm sm:text-base font-medium"
+>
+  {/* Changed from FaShareAlt to FaWhatsapp */}
+  <FaWhatsapp className="mr-2 text-6xl" /> Share
+</button>
         </div>
 
         {/* Favorites List */}
